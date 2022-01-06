@@ -1,0 +1,4 @@
+/target/*
+!/target/release
+Cargo.lock
+server.log
