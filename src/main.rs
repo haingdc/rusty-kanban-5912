@@ -9,7 +9,7 @@ mod db;
 mod utils;
 mod models;
 mod schema;
-mod routes;
+// mod routes;
 // mod models2;
 
 type StdErr = Box<dyn std::error::Error>;
@@ -24,7 +24,7 @@ fn main() -> Result<(), StdErr> {
     rocket::ignite()
        .manage(db)
        .mount("/", rocket::routes![hello_world])
-       .mount("/api", routes::api())
+      //  .mount("/api", routes::api())
        .launch();
 
     // example
