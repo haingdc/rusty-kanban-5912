@@ -8,8 +8,10 @@ use diesel::{r2d2, PgConnection};
 use crate::models::*;
 use crate::schema::*;
 use crate::StdErr;
+// use r2d2_postgres::{postgres::NoTls, PostgresConnectionManager};
 
 type PgPool = r2d2::Pool<r2d2::ConnectionManager<PgConnection>>;
+// type PgPool2 = r2d2::Pool<r2d2_postgres::PostgresConnectionManager<NoTls>>;
 
 pub struct Db {
     pool: PgPool,
@@ -24,6 +26,13 @@ impl Db {
             .min_idle(Some(50))
             .build(manager)?;
         Ok(Db { pool })
+
+        // let manager = PostgresConnectionManager::new(
+        //     "host=localhost user=postgres".parse().unwrap(),
+        //     NoTls,
+        // );
+        // let pool = r2d2::Pool::new(manager).unwrap();
+        // Ok(Db { pool })
     }
 
     // token methods
