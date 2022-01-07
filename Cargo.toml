@@ -1,7 +1,7 @@
 # Cargo.toml
 
 [package]
-name = "kanban"
+name = "rust-kanban-5912"
 version = "0.1.0"
 authors = ["pretzelhammer <7769424+pretzelhammer@users.noreply.github.com>"]
 edition = "2018"
