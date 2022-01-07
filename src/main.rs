@@ -19,10 +19,10 @@ fn main() -> Result<(), StdErr> {
     dotenv::dotenv()?;
     utils::logger::init()?;
 
-   //  let db = db::Db::connect()?;
+    let db = db::Db::connect()?;
 
     rocket::ignite()
-      //  .manage(db)
+       .manage(db)
        .mount("/", rocket::routes![hello_world])
       //  .mount("/api", routes::api())
        .launch();
